@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react"
 import { getTransferData } from "../utils/dnd";
 
-export function useDroppable<T extends {}>(props:
+export function useDroppable<T extends {} = {}>(props:
     {
         tag: string;
         enter?: (e: React.DragEvent, transfer: T) => void;

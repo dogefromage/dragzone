@@ -21,15 +21,13 @@ function decodeUpperCase(str: string): string {
     );
 }
 
-export function setTransferData<T>(e: React.DragEvent, tag: string, data: T) {
+export function setTransferData(e: React.DragEvent, tag: string, data: object) {
     const json = JSON.stringify({ tag, data });
-
     e.dataTransfer.setData(encodeUpperCase(json), "null");
 }
 
 export function getTransferData<T>(e: React.DragEvent, tag: string) {
     const json = decodeUpperCase(e.dataTransfer.types[0] || '{}')
-
     try {
         const parsed = JSON.parse(json);
         if (parsed.tag === tag) {

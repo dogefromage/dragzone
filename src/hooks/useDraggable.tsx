@@ -1,15 +1,15 @@
 import React from "react"
 import { setTransferData } from "../utils/dnd";
 
-export function useDraggable<T extends {}>(props:
+export function useDraggable<T extends {} = {}>(props:
     {
         tag: string;
-        start?: (e: React.DragEvent) => T | undefined;
+        start?: (e: React.DragEvent) => T | undefined | void;
         end?: (e: React.DragEvent) => void;
     }) {
 
     const onDragStart = (e: React.DragEvent) => {
-        const transfer = props.start?.(e);
+        const transfer = props.start?.(e) || {};
         setTransferData(e, props.tag, transfer);
         e.dataTransfer.setDragImage(new Image(), 0, 0);
     }
