@@ -1,6 +1,6 @@
 {
   "name": "dragzone",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A collection of useful mouse interaction helpers for a react-based web app.",
   "keywords": [
     "react",
